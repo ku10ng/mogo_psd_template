@@ -1,0 +1,112 @@
+mixin menuLink(title,href = "#")
+    li.header-menu-item 
+        a.header-menu-link(href=href)=title  
+
+mixin headerBottomItem(number,title)
+    .header-bottom-item
+        span.header-bottom-number=number
+        span.header-bottom-text=title 
+
+
+mixin blockBox(caption,title,desc)
+    .block-box
+        h3.block-box-caption= caption 
+        h2.block-box-heading= title 
+        if desc
+            p.block-box-desc= desc 
+
+mixin aboutIMG(src,title,iconClass, alt="") 
+    .about-item
+        img.about-image(src= src,alt= alt)
+        .about-content
+            i.about-icon(class= iconClass)
+            span.about-title= title 
+
+
+mixin numberBlock(number,title)
+    .number-item
+        h4.number-item-count=number
+        span.number-item-text=title
+
+mixin serviceBlock(src,title,desc,iconClass,alt="")
+    .service-item
+        if iconClass
+            i.service-item-icon(class= iconClass)
+        else if src
+            img.service-item-icon(src= src,alt=alt)
+            .service-item-info
+                h3.service-item-title= title  
+                p.service-item-desc= desc
+
+
+
+mixin wedoItem(srcHeader,title,iconClass,active = "",desc)
+    .wedo-item(class= active)
+        .wedo-item-header 
+            img.wedo-item-icon(src=srcHeader)
+            h3.wedo-item-title=title
+            i.wedo-item-arrow(class= iconClass)
+        if desc
+            .wedo-item-content
+                .wedo-item-text=desc
+
+
+mixin teamIteam(src,author,info,iconClass1,iconClass2,iconClass3,iconClass4)
+    .team-item
+        .team-main
+            img.team-image(src= src)
+            .team-content
+                ul.team-social
+                    li.team-social-item
+                        a.team-social-link(href="#") 
+                            i.team-social-icon(class=iconClass1)
+                    li.team-social-item
+                        a.team-social-link(href="#") 
+                            i.team-social-icon(class=iconClass2)
+                    li.team-social-item
+                        a.team-social-link(href="#") 
+                            i.team-social-icon(class=iconClass3)
+                    li.team-social-item
+                        a.team-social-link(href="#") 
+                            i.team-social-icon(class=iconClass4)
+
+
+        .team-info 
+            h3.team-name=author
+            span.team-position=info
+
+
+mixin workItem(src = "../images/img-work3.png", icon = "fa fa-home", title = "photographer", full = "" ,desc = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. ")
+    .work-item(class= full)
+        img.work-image(src= src)
+        .work-content
+            i.work-icon(class =icon)
+            h3.work-title= title
+            span.work-desc.text.text--light= desc
+
+mixin peopleItem(src="../images/img-people1.png",name = " Matthew Dix",job= " Graphic" ,desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias, labore sapiente! Quos libero, facilis perspiciatis repellat, odio error, animi quidem vitae quam consequatur ipsa aperiam? Quis totam sint soluta natus.")
+    li.people-item
+        img.people-avatar(src= src)
+        .people-info 
+            h3.people-name= name
+            span.people-job.text.text--light= job 
+            p.people-desc.text= desc 
+
+
+mixin storyItem(src="../images/img-blog1.png", dateNumber = "15", dateText = "Jan" , title="Lorem ipsum dolor sit amet consectetur adipisicing elit.", desc = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore praesentium unde debitis nemo hic esse iusto ab tempore amet eaque quia, iure error pariatur tenetur velit eum cumque, quaerat corrupti.", views = "1000", comment = "100")
+    li.story-item
+        .story-media
+            img.story-image(src= src)
+            .story-date
+                span.story-date-number.text=dateNumber
+                span.story-date-text.text.text--light=dateText
+        h3.story-title=title
+        .story-desc.text 
+            p.story-desc-inner=desc
+        .story-meta     
+            .story-meta-item 
+                i.fa.fa-eye.story-meta-icon
+                span.story-meta-number.text=views
+            .story-meta-item 
+                i.fa.fa-comment.story-meta-icon
+                span.story-meta-number.text=comment
